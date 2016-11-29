@@ -6,4 +6,6 @@ class Product < ApplicationRecord
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'URL должен указывать на изображение формата GIF, JPG, PNG.'
   }
+  validates :title, length: { minimum: 10 }
+
 end
