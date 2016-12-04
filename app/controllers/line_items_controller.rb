@@ -58,12 +58,15 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
-    @line_item.destroy
-    respond_to do |format|
-      format.html { redirect_to @line_item.cart, notice: 'Line item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      @line_item.destroy
+      respond_to do |format|
+        format.js
+        format.html { redirect_to store_url }
+        format.json { head :no_content }
+      end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
