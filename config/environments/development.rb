@@ -6,6 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -52,4 +54,26 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_controller.perform_caching = false
+
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+
+
+  config.force_ssl = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000'
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      authentication: :plain,
+      user_name: 'aovsiychuk@gmail.com',
+      password: '246204373kanybal',
+      domain: 'magazine.com',
+      enable_starttls_auto: true
+  }
+
 end
